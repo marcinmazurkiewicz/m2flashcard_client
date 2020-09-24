@@ -9,10 +9,10 @@
               </div>
                 <ul class="navbar nav">
                   <li class="nav-item">
-                    <router-link :to="{name: 'OProjekcie'}" exact  class="menu-item"><button type="button" class="btn btn-primary">Zaloguj się</button></router-link>
+                    <button type="button" class="btn btn-primary">Zaloguj się</button>
                   </li>
                   <li class="nav-item">
-                    <router-link :to="{name: 'Kontakt'}" exact class="menu-item"><button type="button" class="btn btn-success">Zrejestruj się</button></router-link>
+                    <router-link :to="{name: 'Register'}" exact class="menu-item"><button type="button" class="btn btn-success">Zrejestruj się</button></router-link>
                   </li>
                 </ul>
               <!-- Collapsible content -->
