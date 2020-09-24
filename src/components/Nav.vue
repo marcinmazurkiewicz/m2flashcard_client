@@ -1,6 +1,6 @@
 <template>
-  <div class="header">
-      <div class="container p-2 menu-top">
+  <div class="header menu-top">
+      <div class="container p-2">
             <nav class="navbar navbar-light center-divs">
               <div class="row">
                 <div class="col-8">
@@ -31,6 +31,13 @@ export default {
 <style>
     .menu-item  {
         text-decoration: none;
+    }
+    .menu-top {
+      grid-area: 1 / 1 / 2 / 6;
+      border-bottom: #2c3e50 solid 1px;
+    }
+    .btn {
+      margin: 8px;
     }
     
 </style>
