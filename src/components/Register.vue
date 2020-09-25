@@ -3,25 +3,47 @@
         <form>
             <div class="form-group">
                 <label for="userEmail">Adres email</label>
-                <input type="email" class="form-control" id="userEmail">
+                <input v-model="userEmail" type="email" class="form-control" id="userEmail">
             </div>
             <div class="form-group">
                 <label for="userPassword">Hasło</label>
-                <input type="password" class="form-control" id="userPassword">
+                <input v-model="userPassword" type="password" class="form-control" id="userPassword">
             </div>
             <div class="form-group">
                 <label for="userPasswordConfirm">Potwierdź hasło</label>
-                <input type="password" class="form-control" id="userPasswordConfirm">
+                <input v-model="userPasswordConfirm" type="password" class="form-control" id="userPasswordConfirm">
             </div>
           
-            <button type="submit" class="btn btn-primary">Zarejestruj</button>
+            <button v-on:click="sendRegisterRequest()" type="button" class="btn btn-primary">Zarejestruj</button>
         </form>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'Register',
+  data() {
+    return {
+      userEmail: "",
+      userPassword: "",
+      userPasswordConfirm: ""
+    };
+  },
+  methods: {
+      sendRegisterRequest() {
+          axios.post('http://localhost:8080/api/v1/users/', {
+              email: this.userEmail,
+              password: this.userPassword,
+              confirmPassword: this.userPasswordConfirm
+          }).then((response) => {
+              console.log(response);
+          }).catch((e) => {
+            console.log(e);
+        });
+    }
+  }
 }
 </script>
 
