@@ -1,0 +1,7 @@
+{
+  "dev.mazurkiewicz.m2flashcards.client.register.EMPTY": "Field must be not empty",
+  "dev.mazurkiewicz.m2flashcards.client.register.NOT_MATCH": "Fields must have the same value",
+  "dev.mazurkiewicz.m2flashcards.client.register.NOT_EMAIL": "Email format is not valid",
+  "dev.mazurkiewicz.m2flashcards.client.register.NOT_UNIQUE": "Email is already registered",
+  "dev.mazurkiewicz.m2flashcards.client.register.UNKNOWN": "Unknown error"
+}

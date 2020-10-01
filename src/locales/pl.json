@@ -1,0 +1,7 @@
+{
+  "dev.mazurkiewicz.m2flashcards.client.register.EMPTY": "Pole nie może być puste",
+  "dev.mazurkiewicz.m2flashcards.client.register.NOT_MATCH": "Pola muszą mieć tą samą wartość",
+  "dev.mazurkiewicz.m2flashcards.client.register.NOT_EMAIL": "Niepoprawny format adresu email",
+  "dev.mazurkiewicz.m2flashcards.client.register.NOT_UNIQUE": "Email jest już powiązany z istniejącym kontem",
+  "dev.mazurkiewicz.m2flashcards.client.register.UNKNOWN": "Nieoczekiwany błąd"
+}
