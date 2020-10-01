@@ -1,24 +1,23 @@
 <template>
   <div class="header menu-top">
-      <div class="container p-2">
-            <nav class="navbar navbar-light center-divs">
-              <div class="row">
-                <div class="col-8">
-                  <a href="/">M2Flashcards</a>
-                </div>
-              </div>
-                <ul class="navbar nav">
-                  <li class="nav-item">
-                     <router-link :to="{name: 'Login'}" exact class="menu-item"><button type="button" class="btn btn-primary">Zaloguj się</button></router-link>
-                  </li>
-                  <li class="nav-item">
-                    <router-link :to="{name: 'Register'}" exact class="menu-item"><button type="button" class="btn btn-success">Zrejestruj się</button></router-link>
-                  </li>
-                </ul>
-              <!-- Collapsible content -->
-            </nav>
-            <!--/.Navbar-->
-      </div>
+    <div class="container p-2">
+      <nav class="navbar navbar-light center-divs">
+        <div class="row">
+          <div class="col-8">
+            <a href="/">M2Flashcards</a>
+          </div>
+        </div>
+        
+        <ul class="navbar nav">
+          <li class="nav-item">
+            <router-link :to="{name: 'Login'}" exact class="menu-item"><button type="button" class="btn btn-primary">Zaloguj się</button></router-link>
+          </li>
+          <li class="nav-item">
+            <router-link :to="{name: 'Register'}" exact class="menu-item"><button type="button" class="btn btn-success">Zrejestruj się</button></router-link>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </template>
 
