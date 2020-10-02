@@ -8,13 +8,21 @@
           </div>
         </div>
         
-        <ul class="navbar nav">
-          <li class="nav-item">
+        <ul class="navbar nav" v-if="loggedUser == ''">
+          <li class="nav-item" >
             <router-link :to="{name: 'Login'}" exact class="menu-item"><button type="button" class="btn btn-primary">Zaloguj się</button></router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item"  v-if="loggedUser == ''">
             <router-link :to="{name: 'Register'}" exact class="menu-item"><button type="button" class="btn btn-success">Zrejestruj się</button></router-link>
           </li>
+        </ul>
+        <ul class="navbar nav" v-else>
+          {{ loggedUser }}
+          <li class="nav-item">Dodaj fiszkę</li>
+          <li class="nav-item">Twoje fiszki</li>
+          <li class="nav-item">Twoje talie</li>
+          <li class="nav-item">Twórz talię</li>
+          <button type="button" class="btn btn-primary">Wyloguj</button>
         </ul>
       </nav>
     </div>
@@ -22,9 +30,20 @@
 </template>
 
 <script>
-export default {
-  name: 'Nav',
-}
+  import store from '../store'
+
+  export default {
+    name: 'Nav',
+    data() {
+      return {
+      }
+    },
+    computed: {
+      loggedUser() {
+        return store.getters.getLoggedUser;
+      }
+    }
+  }
 </script>
 
 <style>
