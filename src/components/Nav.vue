@@ -22,7 +22,7 @@
           <li class="nav-item">Twoje fiszki</li>
           <li class="nav-item">Twoje talie</li>
           <li class="nav-item">Twórz talię</li>
-          <button type="button" class="btn btn-primary">Wyloguj</button>
+          <button type="button" class="btn btn-primary" @click="logout">Wyloguj</button>
         </ul>
       </nav>
     </div>
@@ -41,6 +41,11 @@
     computed: {
       loggedUser() {
         return store.getters.getLoggedUser;
+      }
+    },
+    methods: {
+      logout() {
+        store.dispatch('logout');
       }
     }
   }

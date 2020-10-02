@@ -20,6 +20,10 @@ export default new Vuex.Store({
     },
     saveLoggedUser(state, user) {
       state.loggedUser = user;
+    },
+    logout(state) {
+      state.token = '';
+      state.loggedUser = '';
     }
   },
   actions: {
@@ -28,6 +32,9 @@ export default new Vuex.Store({
     },
     saveLoggedUser({commit}, user) {
       commit('saveLoggedUser', user);
+    },
+    logout({commit}) {
+      commit('logout');
     }
   },
   getters: {
