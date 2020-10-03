@@ -56,7 +56,7 @@
               'Authorization': this.token
             }
           }).then((response => {
-            store.dispatch('saveLoggedUser', response.data.name);
+            store.dispatch('saveLoggedUser', response.data);
             this.$router.push({ name: 'Home'})
           }));
         

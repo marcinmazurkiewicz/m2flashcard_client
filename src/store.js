@@ -39,7 +39,8 @@ export default new Vuex.Store({
   },
   getters: {
     getToken: (state) => state.token,
-    getLoggedUser: (state) => state.loggedUser
+    getLoggedUser: (state) => state.loggedUser,
+    isLoggedUser: (state) => state.loggedUser != null && state.loggedUser != ''
   },
   plugins: [vuexPersist.plugin]
 })

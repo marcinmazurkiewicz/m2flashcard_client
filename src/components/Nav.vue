@@ -8,20 +8,21 @@
           </div>
         </div>
         
-        <ul class="navbar nav" v-if="loggedUser == ''">
-          <li class="nav-item" >
-            <router-link :to="{name: 'Login'}" exact class="menu-item"><button type="button" class="btn btn-primary">Zaloguj się</button></router-link>
+        <ul class="navbar nav" v-if="!isLoggedUser">
+          <li class="nav-item">
+            <router-link :to="{name: 'Login'}" exact><button type="button" class="btn btn-primary">Zaloguj się</button></router-link>
           </li>
-          <li class="nav-item"  v-if="loggedUser == ''">
-            <router-link :to="{name: 'Register'}" exact class="menu-item"><button type="button" class="btn btn-success">Zrejestruj się</button></router-link>
+          <li class="nav-item">
+            <router-link :to="{name: 'Register'}" ><button type="button" class="btn btn-success">Zrejestruj się</button></router-link>
           </li>
         </ul>
         <ul class="navbar nav" v-else>
-          {{ loggedUser }}
-          <li class="nav-item">Dodaj fiszkę</li>
-          <li class="nav-item">Twoje fiszki</li>
+          {{ loggedUserame }}
+          <li class="nav-item">            
+            <router-link :to="{name: 'UserFlashcards'}" exact>Twoje fiszki</router-link>
+          </li>
           <li class="nav-item">Twoje talie</li>
-          <li class="nav-item">Twórz talię</li>
+          <li class="nav-item">Szukaj</li>
           <button type="button" class="btn btn-primary" @click="logout">Wyloguj</button>
         </ul>
       </nav>
@@ -39,8 +40,11 @@
       }
     },
     computed: {
-      loggedUser() {
-        return store.getters.getLoggedUser;
+      loggedUserame() {
+        return store.getters.getLoggedUser.name;
+      },
+      isLoggedUser() {
+        return store.getters.isLoggedUser;
       }
     },
     methods: {
@@ -52,8 +56,9 @@
 </script>
 
 <style>
-    .menu-item  {
+    .nav-item  {
         text-decoration: none;
+        padding: 8px;
     }
     .menu-top {
       grid-area: 1 / 1 / 2 / 6;
