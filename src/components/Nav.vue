@@ -23,8 +23,8 @@
           </li>
           <li class="nav-item">Twoje talie</li>
           <li class="nav-item">Szukaj</li>
-          <button type="button" class="btn btn-primary" @click="logout">Wyloguj</button>
         </ul>
+        <Logout v-if="isLoggedUser" />
       </nav>
     </div>
   </div>
@@ -32,9 +32,13 @@
 
 <script>
   import store from '../store'
+  import Logout from './Logout'
 
   export default {
     name: 'Nav',
+    components: {
+      Logout
+    },
     data() {
       return {
       }
@@ -50,6 +54,7 @@
     methods: {
       logout() {
         store.dispatch('logout');
+        this.$router.push({ name: 'Home'})
       }
     }
   }
