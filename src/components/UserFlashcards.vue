@@ -1,20 +1,20 @@
 <template>
   <div class="flashcard-wrapper">
-    <ul>
-      <li v-for="flashcard in flashcards" :key="flashcard.id">
-        {{ flashcard }}
-      </li>
-    </ul>
+    <Flashcard v-for="flashcard in flashcards" :key="flashcard.id" :flashcard="flashcard" />
   </div>
 </template>
 
 <script>
   import axios from 'axios'
   import store from '../store'
+  import Flashcard from './Flashcard'
   // var componentKey = 'dev.mazurkiewicz.m2flashcards.client.user.flashcards';
 
   export default {
     name: 'Login',
+    components: {
+      Flashcard
+    },
     data() {
       return {
         flashcards: [],
