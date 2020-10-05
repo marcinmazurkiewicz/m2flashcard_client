@@ -1,5 +1,7 @@
 <template>
   <div class="flashcard-wrapper">
+    <router-link :to="{name: 'AddFlashcard'}" exact><button type="button" class="btn btn-primary">Dodaj fiszkę</button></router-link>
+
     <Flashcard v-for="flashcard in flashcards" :key="flashcard.id" :flashcard="flashcard" />
   </div>
 </template>
