@@ -2,7 +2,7 @@
   <div class="flashcard-wrapper">
     <router-link :to="{name: 'AddFlashcard'}" exact><button type="button" class="btn btn-primary">Dodaj fiszkę</button></router-link>
 
-    <Flashcard v-for="flashcard in flashcards" :key="flashcard.id" :flashcard="flashcard" />
+    <Flashcard v-for="flashcard in flashcards" :key="flashcard.id" :flashcard="flashcard" @removeFlashcard="removeFlashcard" />
   </div>
 </template>
 
@@ -21,6 +21,12 @@
       return {
         flashcards: [],
       };
+    },
+    methods: {
+      removeFlashcard(id) {
+        const index = this.flashcards.findIndex(el => el.id === id);
+        this.flashcards.splice(index,1);
+      }
     },
     beforeMount() {
       var userId = store.getters.getLoggedUser.details.userId;

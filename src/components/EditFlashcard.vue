@@ -59,7 +59,7 @@
             twoSided: this.twoSided,
             privy: this.privy
         };  
-        axios.post('http://localhost:8080/api/v1/flashcards/',data , { headers: {
+        axios.patch('http://localhost:8080/api/v1/flashcards/' + this.$route.params.id,data , { headers: {
               'Authorization': store.getters.getToken
             }}).then(() => {
           this.errors = [];
@@ -76,6 +76,17 @@
       getErrorMsg(errorType) {
         return componentKey + '.' + errorType;
       }
+    },
+    beforeMount() {
+        var addr = 'http://localhost:8080/api/v1/flashcards/' + this.$route.params.id;
+        axios.get(addr,  { headers: {
+              'Authorization': store.getters.getToken
+            }}).then((response) => {
+                this.question = response.data.question;
+                this.answer = response.data.answer;
+                this.twoSided = response.data.twoSided;
+                this.privy = response.data.privy;
+            })
     }
   }
 </script>

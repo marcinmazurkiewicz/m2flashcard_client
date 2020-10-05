@@ -5,6 +5,7 @@ import Login from '@/components/Login'
 import Home from '@/components/Home'
 import UserFlashcards from '@/components/UserFlashcards'
 import AddFlashcard from '@/components/AddFlashcard'
+import EditFlashcard from '@/components/EditFlashcard'
 
 Vue.use(Router)
 
@@ -36,6 +37,11 @@ export default new Router({
       path: '/add-flashcard',
       name: 'AddFlashcard',
       component: AddFlashcard
+    },
+    {
+      path: '/edit-flashcard/:id',
+      name: 'EditFlashcard',
+      component: EditFlashcard
     }
   ]
 })
