@@ -22,9 +22,9 @@
   }
 </script>
 
-<style>
+<style scoped>
   .form-wrapper {
     padding-top: 24px;
-    grid-area: 2 / 2 / 5 / 5;
+    grid-area: 3 / 2 / 5 / 5;
   }
 </style>

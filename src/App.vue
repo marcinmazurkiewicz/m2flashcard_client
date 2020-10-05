@@ -1,17 +1,19 @@
 <template>
   <div id="app-wrapper">
     <Nav />
+    <Alertbar />
     <router-view/>
   </div>
 </template>
 
 <script>
-  import Nav from './components/Nav.vue'
+  import Nav from './components/Nav'
+  import Alertbar from './components/Alertbar'
 
 export default {
   name: 'App',
   components: {
-    Nav,
+    Nav, Alertbar
   }
 }
 </script>
@@ -24,7 +26,7 @@ export default {
 
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 100px repeat(4, 1fr); 
+  grid-template-rows: 100px 50px repeat(3, 1fr); 
   grid-column-gap: 0px;
   grid-row-gap: 0px; 
 }

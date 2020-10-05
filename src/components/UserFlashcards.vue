@@ -1,5 +1,8 @@
 <template>
   <div class="flashcard-wrapper">
+    <div ref="alerts">
+    </div>
+    
     <router-link :to="{name: 'AddFlashcard'}" exact><button type="button" class="btn btn-primary">Dodaj fiszkę</button></router-link>
 
     <Flashcard v-for="flashcard in flashcards" :key="flashcard.id" :flashcard="flashcard" @removeFlashcard="removeFlashcard" />
@@ -10,10 +13,12 @@
   import axios from 'axios'
   import store from '../store'
   import Flashcard from './Flashcard'
+  import Alertbar from './Alertbar'
+
   // var componentKey = 'dev.mazurkiewicz.m2flashcards.client.user.flashcards';
 
   export default {
-    name: 'Login',
+    name: 'UserFlashcards',
     components: {
       Flashcard
     },
@@ -26,6 +31,10 @@
       removeFlashcard(id) {
         const index = this.flashcards.findIndex(el => el.id === id);
         this.flashcards.splice(index,1);
+        this.getAlert("Fiszka usunięta", 'danger');
+      },
+      pushAlert(msg, type) {
+       Alertbar.pushAlert(msg, type); 
       }
     },
     beforeMount() {
@@ -37,6 +46,9 @@
       }).then((response) => {
         this.flashcards = response.data;
       })
+    },
+    mounted() {
+      this.$root.$emit('pushAlert', "message", "primary");
     }
   }
 </script>
