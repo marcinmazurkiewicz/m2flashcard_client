@@ -1,23 +1,33 @@
 <template>
   <div class="flashcard">
-    <p>ID: {{flashcard.id}}</p>
-    <p>Pytanie: {{flashcard.question}}</p>
-    <p>Odpowiedź: {{flashcard.answer}}</p>
-    <p>Symetryczna: {{flashcard.twoSided}}</p>
-    <p>Prywatna: {{flashcard.privy}}</p>
-    <router-link :to="{name: 'EditFlashcard', params: {id: flashcard.id}}" ><button type="button" class="btn btn-primary">Edytuj</button> </router-link>
-    <DeleteFlashcard :flashcardId="flashcard.id" @flashcardRemoved="removeFlashcard" />
+    <p class="flashcard-id">#{{flashcard.id}}</p>
+    <h1 class="flashcard-question">{{flashcard.question}}</h1>
+    <h4 class="flashcard-answer">({{flashcard.answer}})</h4>
+    <div class="flashcard-badge">
+      <span v-if="flashcard.privy" class="badge badge-danger">prywatna</span> 
+      <span v-if="flashcard.twoSided" class="badge badge-info">dwustronna</span>
+    </div>
+    <div class="flashcard-options">
+      <router-link :to="{name: 'EditFlashcard', params: {id: flashcard.id}}" >
+        <Button class="text-success">Edytuj</Button>
+        <Button2 class="text-success">Edytuj</Button2>
+      </router-link>
+      <DeleteFlashcard :flashcardId="flashcard.id" @flashcardRemoved="removeFlashcard" />
+    </div>
   </div>
 </template>
 
 <script>
   import DeleteFlashcard from './DeleteFlashcard'
+  import Button from './Button'
+    import Button2 from './Button2'
+
 
   export default {
     name: 'Flashcard',
     props: ['flashcard'],
     components: {
-      DeleteFlashcard
+      DeleteFlashcard, Button, Button2
     },
     data() {
      return {}
@@ -30,11 +40,51 @@
   }
 </script>
 
-<style>
+<style lang="scss" scoped>
+
   .flashcard {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 64px auto auto 60px; 
+    grid-column-gap: 0px;
+    grid-row-gap: 0px; 
     border: 2px solid #d0d0d0;
     border-radius: 25px;
     margin: 16px;
-    padding: 16px;
+    width: 500px;
   }
+  .flashcard-id {
+    font-weight: bold;
+    margin: 24px;
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .flashcard-question {
+        grid-area: 2 / 1 / 3 / 3;
+        text-align: center;
+        margin-top: 24px;
+  }
+  .flashcard-answer {
+        grid-area: 3 / 1 / 4 / 3;
+        text-align: center;
+        margin-bottom: 24px;
+  }
+  .flashcard-badge {
+        grid-area: 1 / 2 / 3 / 3;
+        margin-top: 24px;
+        margin-right: 24px;
+        text-align: right;
+  }
+  .flashcard-options {
+        grid-area: 4 / 2 / 5 / 3;
+        text-align: right;
+        margin-right: 24px;
+        margin-bottom: 32px;
+  }
+  .badge {
+    padding: 10px 16px;
+    margin-left: 8px;
+  }
+ 
+
+
 </style>

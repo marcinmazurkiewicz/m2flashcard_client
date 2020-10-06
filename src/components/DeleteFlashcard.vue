@@ -1,17 +1,22 @@
 <template>
-  <button type="button" class="btn btn-danger" @click="remove"> Usuń </button>
+    <Button class="text-danger" @click="remove">Usuń</Button>
 </template>
 
 <script>
   import store from '../store'
   import axios from 'axios'
+  import Button from './Button'
   import { pushAlert } from '../mixins/PushAlert'
+
 
   var componentKey = 'dev.mazurkiewicz.m2flashcards.client.deleteflashcard';
 
   export default {
     name: 'DeleteFlashcard',
     mixins: [pushAlert],
+    components: {
+        Button
+    },
     props: ['flashcardId'],
     methods: {
       remove() {

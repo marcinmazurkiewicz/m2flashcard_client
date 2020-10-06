@@ -1,11 +1,9 @@
 <template>
-  <div class="flashcard-wrapper">
-    <div ref="alerts">
-    </div>
-    
+  <div class="wrapper">   
     <router-link :to="{name: 'AddFlashcard'}" exact><button type="button" class="btn btn-primary">Dodaj fiszkę</button></router-link>
-
-    <Flashcard v-for="flashcard in flashcards" :key="flashcard.id" :flashcard="flashcard" @removeFlashcard="removeFlashcard" />
+    <div class="flashcard-wrapper">   
+      <Flashcard v-for="flashcard in flashcards" :key="flashcard.id" :flashcard="flashcard" @removeFlashcard="removeFlashcard" />
+    </div>
   </div>
 </template>
 
@@ -45,9 +43,16 @@
   }
 </script>
 
-<style>
-  .flashcard-wrapper {
+<style scoped>
+  .wrapper {
     padding-top: 24px;
     grid-area: 3 / 2 / 5 / 5;
+    max-width: 1200px;
+  } 
+  .flashcard-wrapper {
+    padding-top: 24px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }    
 </style>
