@@ -4,8 +4,8 @@
     <h1 class="flashcard-question">{{flashcard.question}}</h1>
     <h4 class="flashcard-answer">({{flashcard.answer}})</h4>
     <div class="flashcard-badge">
-      <span v-if="flashcard.privy" class="badge badge-danger">prywatna</span> 
-      <span v-if="flashcard.twoSided" class="badge badge-info">dwustronna</span>
+      <Badge v-if="flashcard.privy" class="text-danger">prywatna</Badge> 
+      <Badge v-if="flashcard.twoSided" class="text-info">dwustronna</Badge>
     </div>
     <div class="flashcard-options">
       <router-link :to="{name: 'EditFlashcard', params: {id: flashcard.id}}" >
@@ -19,14 +19,15 @@
 <script>
   import DeleteFlashcard from './DeleteFlashcard'
   import Button from './Button'
-
+  import Badge from './Badge'
 
   export default {
     name: 'Flashcard',
     props: ['flashcard'],
     components: {
       DeleteFlashcard, 
-      Button
+      Button,
+      Badge
     },
     data() {
      return {}
@@ -56,6 +57,7 @@
   .flashcard-id {
     font-weight: bold;
     margin: 24px;
+    color:  #808b96;
     grid-area: 1 / 1 / 2 / 2;
   }
   .flashcard-question {
@@ -68,6 +70,9 @@
         grid-area: 3 / 1 / 4 / 3;
         text-align: center;
         margin: 1.2rem;
+        margin-top: 0.4rem;
+        margin-bottom: 2rem;
+        color:  #d6dbdf;
   }
   .flashcard-badge {
         grid-area: 1 / 2 / 3 / 3;
@@ -81,11 +86,4 @@
         margin-right: 24px;
         margin-bottom: 32px;
   }
-  .badge {
-    padding: 10px 16px;
-    margin-left: 8px;
-  }
- 
-
-
 </style>
