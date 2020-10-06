@@ -13,7 +13,6 @@
   import axios from 'axios'
   import store from '../store'
   import Flashcard from './Flashcard'
-  import Alertbar from './Alertbar'
 
   // var componentKey = 'dev.mazurkiewicz.m2flashcards.client.user.flashcards';
 
@@ -31,11 +30,7 @@
       removeFlashcard(id) {
         const index = this.flashcards.findIndex(el => el.id === id);
         this.flashcards.splice(index,1);
-        this.getAlert("Fiszka usunięta", 'danger');
       },
-      pushAlert(msg, type) {
-       Alertbar.pushAlert(msg, type); 
-      }
     },
     beforeMount() {
       var userId = store.getters.getLoggedUser.details.userId;
@@ -46,9 +41,6 @@
       }).then((response) => {
         this.flashcards = response.data;
       })
-    },
-    mounted() {
-      this.$root.$emit('pushAlert', "message", "primary");
     }
   }
 </script>
@@ -56,6 +48,6 @@
 <style>
   .flashcard-wrapper {
     padding-top: 24px;
-    grid-area: 2 / 2 / 5 / 5;
+    grid-area: 3 / 2 / 5 / 5;
   }    
 </style>

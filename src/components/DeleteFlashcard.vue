@@ -5,10 +5,13 @@
 <script>
   import store from '../store'
   import axios from 'axios'
+  import { pushAlert } from '../mixins/PushAlert'
+
   var componentKey = 'dev.mazurkiewicz.m2flashcards.client.deleteflashcard';
 
   export default {
     name: 'DeleteFlashcard',
+    mixins: [pushAlert],
     props: ['flashcardId'],
     methods: {
       remove() {
@@ -16,8 +19,11 @@
         headers: {
           'Authorization': store.getters.getToken
         }
-      }).then(() => this.$emit('flashcardRemoved', this.flashcardId))
-      .catch((e) => {
+      }).then(() => {
+          this.pushAlert("Fiszka usunięta", 'danger')
+          this.$emit('flashcardRemoved', this.flashcardId)
+          
+      }).catch((e) => {
          console.log(e);
         });
       },

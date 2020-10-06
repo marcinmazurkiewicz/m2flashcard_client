@@ -37,10 +37,13 @@
 <script>
   import axios from 'axios'
   import store from '../store'
+  import { pushAlert } from '../mixins/PushAlert'
+
   var componentKey = 'dev.mazurkiewicz.m2flashcards.client.addflashcard';
 
   export default {
     name: 'AddFlashcard',
+    mixins: [pushAlert],
     data() {
       return {
         question: "",
@@ -63,6 +66,7 @@
               'Authorization': store.getters.getToken
             }}).then(() => {
           this.errors = [];
+          this.pushAlert('Fiszka została dodana', 'success');
           this.$router.push({ name: 'UserFlashcards'});
         }).catch((e) => {
           if(e.response.status == 403) {
