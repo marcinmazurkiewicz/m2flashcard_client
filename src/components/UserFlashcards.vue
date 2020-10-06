@@ -1,6 +1,8 @@
 <template>
   <div class="wrapper">   
-    <router-link :to="{name: 'AddFlashcard'}" exact><button type="button" class="btn btn-primary">Dodaj fiszkę</button></router-link>
+    <router-link :to="{name: 'AddFlashcard'}" exact>
+      <Button class="text-info">Dodaj fiszkę</Button>
+      </router-link>
     <div class="flashcard-wrapper">   
       <Flashcard v-for="flashcard in flashcards" :key="flashcard.id" :flashcard="flashcard" @removeFlashcard="removeFlashcard" />
     </div>
@@ -11,13 +13,15 @@
   import axios from 'axios'
   import store from '../store'
   import Flashcard from './Flashcard'
+  import Button from './Button'
 
   // var componentKey = 'dev.mazurkiewicz.m2flashcards.client.user.flashcards';
 
   export default {
     name: 'UserFlashcards',
     components: {
-      Flashcard
+      Flashcard,
+      Button
     },
     data() {
       return {

@@ -20,16 +20,5 @@
 </script>
 
 <style>
-    .nav-item  {
-        text-decoration: none;
-        padding: 8px;
-    }
-    .menu-top {
-      grid-area: 1 / 1 / 2 / 6;
-      border-bottom: #2c3e50 solid 1px;
-    }
-    .btn {
-      margin: 8px;
-    }
     
 </style>

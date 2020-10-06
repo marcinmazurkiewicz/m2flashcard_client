@@ -2,60 +2,57 @@
     <button class="button"  @click="$emit('click')"><span><slot /></span></button>
 </template>
 <style lang="scss" scoped>
-$bg: #001519;
-$border-width: .2rem;
-$corner-size: 2rem;
-$dur: .3s;
-
   .button {
-  font-family: 'Lato', sans-serif;
-  letter-spacing: .02rem;
-  cursor: pointer;
-  background: transparent;
-  border: $border-width solid currentColor;
-  border-radius: 0.3rem;
-  font-size: 0.9rem;
-  padding-top: 0.1rem;
-    padding-bottom: 0.1rem;
-    margin-left: 0.6rem;
-  position: relative;
-  transition: color $dur;
-  
-  &:hover {
-    &::before { width: 0; }
-    &::after { height: 0; }
-  }
-  &:active {
-    border-width: $border-width / 2;
-  }
-  
-  //bit lame about the extra span. 
-  //it's to get the text to appear on top of the psewudo elements. is there a dom-less way to do it?
-  span {
+    margin-left: 1.2rem;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.9rem;
     position: relative;
-    z-index: 2;
-  }
-  &::before, &::after {
-    content: '';
-    position: absolute;
-    background: $bg;
-    z-index: 1;
-    transition: all $dur;
-  }
-  //the 101% is because of a pixel rounding issue in firefox
-  &::before {
-    width: calc(100% - #{$corner-size});
-    height: calc(101% + #{$border-width * 2});
-    top: -$border-width;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  &::after {
-    height: calc(100% - #{$corner-size});
-    width: calc(101% + #{$border-width * 2});
-    left: -$border-width;
-    top: 50%;
-    transform: translateY(-50%);
+    background: inherit;
+    text-decoration: none;
+    border: 0.2rem solid;
+    border-radius: .3rem;
+    padding: 0.3rem 1rem;
+    padding-bottom: 0.4rem;
+
+    .button span {
+      background: inherit;
+    }
+  
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 10%;
+      background: #001a1f;
+      height: 0.3em;
+      right: 20%;
+      top: -0.21em;
+      transform: skewX(-45deg);
+      -webkit-transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+      transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 10%;
+      background: #001a1f;
+      height: 0.3em;
+      left: 20%;
+      bottom: -0.25em;
+      transform: skewX(45deg);
+      -webkit-transition: all 0.45 cubic-bezier(0.86, 0, 0.07, 1);
+      transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+    }
+  &:hover {
+    &::before {
+      right: 80%;
+    }
+    &::after {
+      left: 80%;
+    }
   }
 }
+
 </style>

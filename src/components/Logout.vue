@@ -1,13 +1,17 @@
 <template>
-  <button type="button" class="btn btn-primary" @click="logout">{{ $t(getLabel('logout')) }}</button>
+  <Button class="text-primary" @click="logout">{{ $t(getLabel('logout')) }}</Button>
 </template>
 
 <script>
   import store from '../store'
+  import Button from './Button'
   var componentKey = 'dev.mazurkiewicz.m2flashcards.client.logout';
 
   export default {
     name: 'Logout',
+    components: {
+      Button
+    },
     methods: {
       logout() {
         store.dispatch('logout');

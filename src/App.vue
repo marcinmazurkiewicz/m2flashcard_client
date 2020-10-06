@@ -22,7 +22,6 @@ export default {
 
 
 #app-wrapper {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -31,9 +30,7 @@ export default {
   grid-template-rows: 100px 50px repeat(3, 1fr); 
   grid-column-gap: 0px;
   grid-row-gap: 0px; 
-
-   background: #001519;
-  color: #fff;
+  background: inherit;
 }
 
 </style>

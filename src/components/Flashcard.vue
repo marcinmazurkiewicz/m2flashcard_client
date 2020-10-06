@@ -10,7 +10,6 @@
     <div class="flashcard-options">
       <router-link :to="{name: 'EditFlashcard', params: {id: flashcard.id}}" >
         <Button class="text-success">Edytuj</Button>
-        <Button2 class="text-success">Edytuj</Button2>
       </router-link>
       <DeleteFlashcard :flashcardId="flashcard.id" @flashcardRemoved="removeFlashcard" />
     </div>
@@ -20,14 +19,14 @@
 <script>
   import DeleteFlashcard from './DeleteFlashcard'
   import Button from './Button'
-    import Button2 from './Button2'
 
 
   export default {
     name: 'Flashcard',
     props: ['flashcard'],
     components: {
-      DeleteFlashcard, Button, Button2
+      DeleteFlashcard, 
+      Button
     },
     data() {
      return {}
@@ -48,10 +47,11 @@
     grid-template-rows: 64px auto auto 60px; 
     grid-column-gap: 0px;
     grid-row-gap: 0px; 
-    border: 2px solid #d0d0d0;
+    border: 0.25rem solid #001d23;
     border-radius: 25px;
     margin: 16px;
     width: 500px;
+    background: #001a1f;
   }
   .flashcard-id {
     font-weight: bold;
@@ -61,12 +61,13 @@
   .flashcard-question {
         grid-area: 2 / 1 / 3 / 3;
         text-align: center;
-        margin-top: 24px;
+        margin: 1.2rem;
+        margin-bottom: 0.4rem;
   }
   .flashcard-answer {
         grid-area: 3 / 1 / 4 / 3;
         text-align: center;
-        margin-bottom: 24px;
+        margin: 1.2rem;
   }
   .flashcard-badge {
         grid-area: 1 / 2 / 3 / 3;

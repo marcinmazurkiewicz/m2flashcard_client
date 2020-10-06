@@ -4,16 +4,16 @@
       <nav class="navbar navbar-light center-divs">
         <div class="row">
           <div class="col-8">
-            <a href="/">M2Flashcards</a>
+            <a href="/" class="root-href">M2Flashcards</a>
           </div>
         </div>
         
         <ul class="navbar nav" v-if="!isLoggedUser">
           <li class="nav-item">
-            <router-link :to="{name: 'Login'}" exact><button type="button" class="btn btn-primary">Zaloguj się</button></router-link>
+            <router-link :to="{name: 'Login'}" exact><Button class="text-primary">Zaloguj się</Button></router-link>
           </li>
           <li class="nav-item">
-            <router-link :to="{name: 'Register'}" ><button type="button" class="btn btn-success">Zrejestruj się</button></router-link>
+            <router-link :to="{name: 'Register'}" ><Button class="text-success">Zrejestruj się</Button></router-link>
           </li>
         </ul>
         <ul class="navbar nav" v-else>
@@ -33,11 +33,13 @@
 <script>
   import store from '../store'
   import Logout from './Logout'
+  import Button from './Button'
 
   export default {
     name: 'Nav',
     components: {
-      Logout
+      Logout,
+      Button
     },
     data() {
       return {
@@ -67,10 +69,17 @@
     }
     .menu-top {
       grid-area: 1 / 1 / 2 / 6;
-      border-bottom: #2c3e50 solid 1px;
+      border-bottom: 0.25rem solid #001d23;
+      background: #001a1f;
     }
     .btn {
       margin: 8px;
+    }
+    .root-href, .root-href:hover {
+      text-decoration: none;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: bolder;
     }
     
 </style>
