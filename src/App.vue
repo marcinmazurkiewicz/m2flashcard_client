@@ -18,7 +18,26 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+html, body {
+  background: #001519 !important;
+  color:  #ebedef !important;
+  font-family: 'Lato', sans-serif !important;
+
+}
+
+.text-yellow {
+  color: $yellow !important;
+}
+.text-red {
+  color: $red !important;
+}
+.text-green {
+  color: $green !important;
+}
+.text-azure {
+  color: $azure !important;
+}
 
 
 #app-wrapper {

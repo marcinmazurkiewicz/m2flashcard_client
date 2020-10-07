@@ -1,7 +1,8 @@
 <template>
   <div class="wrapper">   
     <router-link :to="{name: 'AddFlashcard'}" exact>
-      <Button class="text-info">Dodaj fiszkę</Button>
+      <Button class="text-azure">Dodaj fiszkę</Button>
+
       </router-link>
     <div class="flashcard-wrapper">   
       <Flashcard v-for="flashcard in flashcards" :key="flashcard.id" :flashcard="flashcard" @removeFlashcard="removeFlashcard" />

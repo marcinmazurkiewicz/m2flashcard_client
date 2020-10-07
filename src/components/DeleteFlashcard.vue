@@ -1,5 +1,5 @@
 <template>
-    <Button class="text-danger" @click="remove">Usuń</Button>
+    <Button class="text-red" @click="remove">Usuń</Button>
 </template>
 
 <script>

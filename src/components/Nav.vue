@@ -6,10 +6,12 @@
     <div class="nav-list" v-if="isLoggedUser">    
       <ul>
         <li class="nav-item">            
-          <router-link :to="{name: 'UserFlashcards'}" exact>Twoje fiszki</router-link>
+          <router-link :to="{name: 'UserFlashcards'}" active-class="active-nav">Twoje fiszki</router-link>
         </li>
-        <li class="nav-item"><a>Twoje talie</a></li>
-        <li class="nav-item"><a>Szukaj</a></li>
+        <li class="nav-item">
+          <router-link :to="{name: 'Home'}" exact-active-class="active-nav">Twoje talie</router-link>
+          </li>
+        <li class="nav-item" exact-active-class="active-nav text-azure"><a>Szukaj</a></li>
       </ul>
     </div>
     <div class="nav-buttons">
@@ -18,8 +20,8 @@
         <Logout  />
       </span>
       <span v-else>
-        <router-link :to="{name: 'Login'}" exact><Button class="text-primary">Zaloguj się</Button></router-link>
-        <router-link :to="{name: 'Register'}" ><Button class="text-success">Zrejestruj się</Button></router-link>
+        <router-link :to="{name: 'Login'}"><Button class="text-azure">Zaloguj się</Button></router-link>
+        <router-link :to="{name: 'Register'}" ><Button class="text-green">Zrejestruj się</Button></router-link>
       </span>
     </div>
   </nav>
@@ -57,7 +59,7 @@
   }
 </script>
 
-<style>
+<style lang="scss" scoped>
   .top-nav {
     width: 100%;
     grid-area: 1 / 1 / 2 / 6;
@@ -95,8 +97,14 @@
     text-decoration: none;
     color: #ebedef;
     font-weight: bolder;
+    padding: 0.3rem;
   }
   .nav-item a:hover {
     color: #17a2b8;
+  }
+
+  .active-nav {
+    @extend .text-azure;
+    border-bottom: 0.15rem solid !important;
   }
 </style>

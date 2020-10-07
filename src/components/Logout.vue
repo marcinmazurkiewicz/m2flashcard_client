@@ -1,5 +1,5 @@
 <template>
-  <Button class="text-primary" @click="logout">{{ $t(getLabel('logout')) }}</Button>
+  <Button class="text-azure" @click="logout">{{ $t(getLabel('logout')) }}</Button>
 </template>
 
 <script>

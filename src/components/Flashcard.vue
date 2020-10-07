@@ -4,12 +4,12 @@
     <h1 class="flashcard-question">{{flashcard.question}}</h1>
     <h4 class="flashcard-answer">({{flashcard.answer}})</h4>
     <div class="flashcard-badge">
-      <Badge v-if="flashcard.privy" class="text-danger">prywatna</Badge> 
-      <Badge v-if="flashcard.twoSided" class="text-info">dwustronna</Badge>
+      <Badge v-if="flashcard.privy" class="text-yellow">prywatna</Badge> 
+      <Badge v-if="flashcard.twoSided" class="text-azure">dwustronna</Badge>
     </div>
     <div class="flashcard-options">
       <router-link :to="{name: 'EditFlashcard', params: {id: flashcard.id}}" >
-        <Button class="text-success">Edytuj</Button>
+        <Button class="text-green">Edytuj</Button>
       </router-link>
       <DeleteFlashcard :flashcardId="flashcard.id" @flashcardRemoved="removeFlashcard" />
     </div>
