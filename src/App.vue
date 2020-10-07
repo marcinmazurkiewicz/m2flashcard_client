@@ -26,20 +26,6 @@ html, body {
 
 }
 
-.text-yellow {
-  color: $yellow !important;
-}
-.text-red {
-  color: $red !important;
-}
-.text-green {
-  color: $green !important;
-}
-.text-azure {
-  color: $azure !important;
-}
-
-
 #app-wrapper {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
