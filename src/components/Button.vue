@@ -4,7 +4,7 @@
 <style lang="scss" scoped>
   .button {
     margin-left: 1.2rem;
-    font-family: 'Lato', sans-serif;
+    font-family: $baseFont;
     font-size: 0.9rem;
     position: relative;
     background: inherit;
@@ -23,7 +23,7 @@
       display: block;
       position: absolute;
       width: 10%;
-      background: #001a1f;
+      background: $bgDarker;
       height: 0.3em;
       right: 20%;
       top: -0.21em;
@@ -37,7 +37,7 @@
       display: block;
       position: absolute;
       width: 10%;
-      background: #001a1f;
+      background: $bgDarker;
       height: 0.3em;
       left: 20%;
       bottom: -0.25em;
@@ -54,5 +54,4 @@
     }
   }
 }
-
 </style>

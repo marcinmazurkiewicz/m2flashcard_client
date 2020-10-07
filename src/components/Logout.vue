@@ -24,8 +24,4 @@
   }
 </script>
 
-<style>
- .btn {
-    margin: 8px;
-  }
-</style>
+

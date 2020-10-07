@@ -45,19 +45,19 @@
   .flashcard {
     display: grid;
     grid-template-columns: 1fr 5fr;
-    grid-template-rows: 64px auto auto 60px; 
-    grid-column-gap: 0px;
-    grid-row-gap: 0px; 
-    border: 0.25rem solid #001d23;
-    border-radius: 25px;
-    margin: 16px;
+    grid-template-rows: 3.5rem auto auto 3.5rem; 
+    grid-column-gap: 0;
+    grid-row-gap: 0; 
+    border: 0.25rem solid $bgBorder;
+    border-radius: 1.5rem;
+    margin: 1rem;
     width: 500px;
-    background: #001a1f;
+    background: $bgLighter;
   }
   .flashcard-id {
     font-weight: bold;
-    margin: 24px;
-    color:  #808b96;
+    margin: 1.5rem;
+    color:  $fontGray;
     grid-area: 1 / 1 / 2 / 2;
   }
   .flashcard-question {
@@ -72,18 +72,18 @@
         margin: 1.2rem;
         margin-top: 0.4rem;
         margin-bottom: 2rem;
-        color:  #d6dbdf;
+        color:  $fontDarker;
   }
   .flashcard-badge {
         grid-area: 1 / 2 / 3 / 3;
-        margin-top: 24px;
-        margin-right: 24px;
+        margin-top: 1.5rem;
+        margin-right: 1.5rem;
         text-align: right;
   }
   .flashcard-options {
         grid-area: 4 / 2 / 5 / 3;
         text-align: right;
-        margin-right: 24px;
-        margin-bottom: 32px;
+        margin-right: 1.5rem;
+        margin-bottom: 2rem;
   }
 </style>

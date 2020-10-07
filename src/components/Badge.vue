@@ -4,7 +4,7 @@
 <style lang="scss" scoped>
   .badge {
     margin-left: 1.2rem;
-    font-family: 'Lato', sans-serif;
+    font-family: $baseFont;
     font-size: 0.75rem;
     position: relative;
     background: inherit;
@@ -18,7 +18,7 @@
       display: block;
       position: absolute;
       width: 10%;
-      background: #001a1f;
+      background: $bgLighter;
       height: 0.3em;
       right: 38%;
       top: -0.21em;
@@ -32,7 +32,7 @@
       display: block;
       position: absolute;
       width: 10%;
-      background: #001a1f;
+      background: $bgDarker;
       height: 0.3em;
       left: 37%;
       bottom: -0.25em;

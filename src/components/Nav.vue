@@ -63,8 +63,8 @@
   .top-nav {
     width: 100%;
     grid-area: 1 / 1 / 2 / 6;
-    border-bottom: 0.25rem solid #001d23;
-    background: #001a1f;
+    border-bottom: 0.25rem solid $bgBorder;
+    background: $bgLighter;
     display: grid;
     justify-items: center;
     align-items: center;
@@ -77,7 +77,7 @@
   }
   .root-href a, .root-href a:hover {
     text-decoration: none;
-    color: #fff;
+    color:$fontBaseColor;
     font-size: 1.2rem;
     font-weight: bolder;
     margin-top: 2rem;
@@ -90,17 +90,17 @@
   }
   .nav-item  {
     text-decoration: none;
-    padding: 8px;
+    padding: 0.5rem;
     display: inline;
   }
   .nav-item a {
     text-decoration: none;
-    color: #ebedef;
+    color: $fontBaseColor;
     font-weight: bolder;
     padding: 0.3rem;
   }
   .nav-item a:hover {
-    color: #17a2b8;
+    color: $azure;
   }
 
   .active-nav {

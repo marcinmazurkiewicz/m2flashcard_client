@@ -20,8 +20,8 @@ export default {
 
 <style lang="scss">
 html, body {
-  background: #001519 !important;
-  color:  #ebedef !important;
+  background: $bgDarker !important;
+  color:  $fontBaseColor !important;
   font-family: 'Lato', sans-serif !important;
 
 }
@@ -33,8 +33,8 @@ html, body {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: 100px 50px repeat(3, 1fr); 
-  grid-column-gap: 0px;
-  grid-row-gap: 0px; 
+  grid-column-gap: 0;
+  grid-row-gap: 0; 
   background: inherit;
 }
 
