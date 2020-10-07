@@ -1,5 +1,5 @@
 <template>
-  <div class="form-wrapper">
+  <div class="wrapper">
     Welcome to m2flashcards!
   </div>
 </template>
@@ -22,9 +22,3 @@
   }
 </script>
 
-<style scoped>
-  .form-wrapper {
-    padding-top: 1.5rem;
-    grid-area: 3 / 2 / 5 / 5;
-  }
-</style>

@@ -23,8 +23,6 @@
       right: 38%;
       top: -0.21em;
       transform: skewX(-45deg);
-      -webkit-transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
-      transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
     }
 
     &::after {
@@ -37,10 +35,6 @@
       left: 37%;
       bottom: -0.25em;
       transform: skewX(-45deg);
-      -webkit-transition: all 0.45 cubic-bezier(0.86, 0, 0.07, 1);
-      transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
     }
-
-}
-
+  }
 </style>

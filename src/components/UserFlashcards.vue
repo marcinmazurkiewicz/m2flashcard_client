@@ -49,11 +49,6 @@
 </script>
 
 <style scoped>
-  .wrapper {
-    padding-top: 1.5rem;
-    grid-area: 3 / 2 / 5 / 5;
-    max-width: 1200px;
-  } 
   .flashcard-wrapper {
     padding-top: 1.5rem;
     display: flex;

@@ -1,7 +1,7 @@
 <template>
-  <div class="form-wrapper">
+  <div class="wrapper">
     <form>
-      <div class="form-group">
+      <div class="group">
         <label for="question">Pytanie</label>
         <input v-model="question" class="form-control" id="question">
         <div class="alert alert-danger" role="alert" v-if="errors.question">
@@ -84,9 +84,3 @@
   }
 </script>
 
-<style>
-  .form-wrapper {
-    padding-top: 24px;
-    grid-area: 2 / 2 / 5 / 5;
-  }
-</style>

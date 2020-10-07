@@ -1,5 +1,5 @@
 <template>
-  <div class="form-wrapper">
+  <div class="wrapper">
     <form>
       <div class="form-group">
         <label for="question">Pytanie</label>
@@ -91,9 +91,3 @@
   }
 </script>
 
-<style>
-  .form-wrapper {
-    padding-top: 24px;
-    grid-area: 2 / 2 / 5 / 5;
-  }
-</style>

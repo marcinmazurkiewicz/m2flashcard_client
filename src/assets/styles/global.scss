@@ -12,4 +12,10 @@
 .text-azure {
     color: $azure !important;
 }
+
+.wrapper {
+    padding-top: 1.5rem;
+    grid-area: 2 / 2 / 3 / 5;
+    max-width: 1200px;
+} 
   

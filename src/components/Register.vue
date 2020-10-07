@@ -1,5 +1,5 @@
 <template>
-  <div class="form-wrapper">
+  <div class="wrapper">
     <div class="alert alert-success" role="alert" v-if="registerSuccessfull">
       Rejestracja zakończona pomyślnie!
     </div>
@@ -65,9 +65,3 @@
   }
 </script>
 
-<style>
-  .form-wrapper {
-    padding-top: 24px;
-    grid-area: 2 / 2 / 5 / 5;
-  }
-</style>

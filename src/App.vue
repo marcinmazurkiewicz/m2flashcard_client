@@ -19,23 +19,22 @@ export default {
 </script>
 
 <style lang="scss">
-html, body {
-  background: $bgDarker !important;
-  color:  $fontBaseColor !important;
-  font-family: 'Lato', sans-serif !important;
+  html, body {
+    background: $bgDarker !important;
+    color:  $fontBaseColor !important;
+    font-family: $baseFont;
 
-}
+  }
 
-#app-wrapper {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  #app-wrapper {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: 100px 50px repeat(3, 1fr); 
-  grid-column-gap: 0;
-  grid-row-gap: 0; 
-  background: inherit;
-}
-
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 100px auto 100px; 
+    grid-column-gap: 0;
+    grid-row-gap: 0; 
+    background: inherit;
+  }
 </style>

@@ -22,8 +22,11 @@ export default {
         });
         instance.$mount();
         this.$refs.alerts.appendChild(instance.$el);
-        setTimeout(function() {this.$(`#${id}`).alert('close')}, 3000);
-      }
+        // setTimeout(function() {close(id)}, 3000);
+      },
+      // closeAlert(id) {
+      //   this.$(`#${id}`).hide();
+      // }
     }, 
     mounted() {
       this.$root.$on('pushAlert', (message, type) => {
@@ -34,8 +37,7 @@ export default {
 </script>
 <style scoped>
   .alerts {
-        grid-area: 2 / 2 / 3 / 5;
-        padding: 8px;
-
+      grid-area: 3 / 5 / 4 / 6;
+      padding: 0.5rem;
   }
 </style>
