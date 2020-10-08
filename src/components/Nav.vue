@@ -84,6 +84,7 @@
   } 
   .nav-list {
     grid-area: 1 / 2 / 2 / 3;
+    justify-self: left;
   }
   .nav-buttons {
     grid-area: 1 / 3 / 2 / 4;

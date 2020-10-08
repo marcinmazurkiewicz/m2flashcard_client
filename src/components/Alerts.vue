@@ -54,6 +54,7 @@ export default {
     border: 0.18rem solid;
     border-radius: .3rem;
     padding: 0.5rem 1rem;
+    margin-bottom: .5rem;
 
     &::after {
       content: "";
