@@ -25,7 +25,7 @@
           'Authorization': store.getters.getToken
         }
       }).then(() => {
-          this.pushAlert("Fiszka usunięta", 'danger')
+          this.pushAlert("Fiszka usunięta", 'warning')
           this.$emit('flashcardRemoved', this.flashcardId)
           
       }).catch((e) => {

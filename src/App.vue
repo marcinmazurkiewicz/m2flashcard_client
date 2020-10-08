@@ -1,19 +1,19 @@
 <template>
   <div id="app-wrapper">
     <Nav />
-    <Alertbar />
+    <Alerts />
     <router-view/>
   </div>
 </template>
 
 <script>
   import Nav from './components/Nav'
-  import Alertbar from './components/Alertbar'
+  import Alerts from './components/Alerts'
 
 export default {
   name: 'App',
   components: {
-    Nav, Alertbar
+    Nav, Alerts
   }
 }
 </script>
