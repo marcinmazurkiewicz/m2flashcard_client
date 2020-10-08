@@ -3,14 +3,14 @@
     <form>
       <div class="group">
         <label for="question">Pytanie</label>
-        <input v-model="question" class="form-control" id="question">
+        <input v-model="question" class="form-field" id="question">
         <div class="alert alert-danger" role="alert" v-if="errors.question">
           {{ $t(getErrorMsg(errors.question.errorType)) }}
         </div>
       </div>        
       <div class="form-group">
         <label for="answer">Odpowiedź</label>
-        <input v-model="answer" class="form-control" id="answer">
+        <input v-model="answer" class="form-field" id="answer">
         <div class="alert alert-danger" role="alert" v-if="errors.answer">
           {{ $t(getErrorMsg(errors.answer.errorType)) }}
         </div>
@@ -83,4 +83,22 @@
     }
   }
 </script>
-
+<style lang="scss" scoped>
+  .form-field {
+    display: block;
+    margin: .75rem 0;
+    padding: .5rem;
+    font-family: $baseFont;
+    background: transparent;
+    color: $fontBaseColor;
+    border: none;
+    border-bottom: 2px solid $fontBaseColor;
+  }
+  .wrapper {
+    border: 0.25rem solid $bgBorder;
+    border-radius: 1.5rem;
+    margin: 1rem;
+    background: $bgLighter;
+    padding: 2rem;
+  }
+</style>
