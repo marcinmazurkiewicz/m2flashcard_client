@@ -1,35 +1,44 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper form-wrapper">
     <form>
       <div class="form-group">
-        <label for="question">Pytanie</label>
-        <input v-model="question" class="form-control" id="question">
+         <input v-model="question" class="form-field" id="question" required>
+         <label for="question" class="form-label">Pytanie</label>
         <div class="alert alert-danger" role="alert" v-if="errors.question">
           {{ $t(getErrorMsg(errors.question.errorType)) }}
         </div>
       </div>        
       <div class="form-group">
-        <label for="answer">Odpowiedź</label>
-        <input v-model="answer" class="form-control" id="answer">
-        <div class="alert alert-danger" role="alert" v-if="errors.answer">
+        <input v-model="answer" class="form-field" id="answer" required>
+        <label for="answer" class="form-label" >Odpowiedź</label>
+
+        <!-- <div class="alert alert-danger" role="alert" v-if="errors.answer">
           {{ $t(getErrorMsg(errors.answer.errorType)) }}
-        </div>
+        </div> -->
       </div>
-      <div class="form-group form-check">
-        <input type="checkbox" v-model="twoSided" class="form-check-input" id="twoSided" />
-        <label for="twoSided" class="form-check-label">Symetryczna</label>
+      <div class="badge-checkbox">
+        <label for="twoSided" class="form-check-label">
+          <Badge :class="[twoSided ? 'text-azure' : 'text-gray']">dwustronna</Badge>
+          <input type="checkbox" v-model="twoSided" class="badge-checkbox-input" id="twoSided" />
+        </label>
         <div class="alert alert-danger" role="alert" v-if="errors.twoSided">
           {{ $t(getErrorMsg(errors.twoSided.errorType)) }}
         </div>
       </div>   
-      <div class="form-group form-check">
-        <input type="checkbox" v-model="privy" class="form-check-input" id="privy" />
-        <label for="privy" class="form-check-label">Prywatna</label>
+
+      <div class="badge-checkbox">
+        <label for="privy" class="form-check-label">
+          <Badge :class="[privy ? 'text-yellow' : 'text-gray']">prywatna</Badge>
+          <input type="checkbox" v-model="privy" class="badge-checkbox-input" id="privy" />
+        </label>
         <div class="alert alert-danger" role="alert" v-if="errors.privy">
           {{ $t(getErrorMsg(errors.privy.errorType)) }}
         </div>
-      </div>   
-      <button v-on:click="save()" type="button" class="btn btn-primary">Zapisz</button>
+      </div> 
+            
+      <div class="action-buttons">
+        <Button class="text-azure" @click.native="save()">Zapisz</Button>
+      </div>  
     </form>
   </div>
 </template>
@@ -37,10 +46,16 @@
 <script>
   import axios from 'axios'
   import store from '../store'
+  import Button from './Button'
+  import Badge from './Badge'
   var componentKey = 'dev.mazurkiewicz.m2flashcards.client.addflashcard';
 
   export default {
     name: 'AddFlashcard',
+     components: {
+      Button,
+      Badge
+    },
     data() {
       return {
         question: "",

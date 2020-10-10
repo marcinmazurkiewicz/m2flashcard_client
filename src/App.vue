@@ -27,9 +27,6 @@ export default {
   }
 
   #app-wrapper {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 100px auto 100px; 

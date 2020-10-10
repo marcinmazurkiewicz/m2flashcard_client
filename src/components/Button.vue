@@ -1,5 +1,5 @@
 <template>
-    <button class="button"  @click="$emit('click')"><span><slot /></span></button>
+    <button class="button" type="button" @click="$emit('click')"><span><slot /></span></button>
 </template>
 <style lang="scss" scoped>
   .button {
@@ -14,7 +14,7 @@
     padding: 0.3rem 1rem;
     padding-bottom: 0.4rem;
 
-    .button span {
+    span {
       background: inherit;
     }
   

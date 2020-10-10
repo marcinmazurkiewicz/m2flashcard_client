@@ -12,6 +12,9 @@
 .text-azure {
     color: $azure !important;
 }
+.text-gray {
+    color: $fontGray !important;
+}
 
 .wrapper {
     padding-top: 1.5rem;
@@ -19,3 +22,65 @@
     max-width: 1200px;
 } 
   
+
+.badge-checkbox {
+    display: inline-block;
+    margin-right: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  
+  }
+  .badge-checkbox-input {
+    display: none;
+  }
+  .form-field {
+    display: block;
+    width: 95%;
+    margin: .75rem 0;
+    padding: .5rem;
+    font-family: $baseFont;
+    background: transparent;
+    color: $fontBaseColor;
+    border: none;
+    border-bottom: 2px solid $fontBaseColor !important;
+  
+    &:focus, &:valid {
+      + .form-label {
+        top: .75rem;
+        font-size: .75rem;
+      }
+    }
+    &:invalid {
+        box-shadow: none;
+    }
+  }
+  
+  .form-wrapper {
+    border: 0.25rem solid $bgBorder;
+    border-radius: 1.5rem;
+    margin: 3rem;
+    background: $bgLighter;
+    padding: 2rem;
+  }
+  
+   .form-group {
+      margin: 1.5rem 1rem;
+      padding-top: 1rem;
+      position: relative;
+      width: 90%;
+    }
+  
+    .form-label {
+      position: absolute;
+      transition: 0.25s ease;
+      -moz-transition: 0.25s ease;
+      -webkit-transition: 0.25s ease;
+      -o-transition: 0.25s ease;
+      -ms-transition: 0.25s ease;
+      color: $fontBaseColor;
+      left: 0;
+      top: 2rem;
+    }
+    .action-buttons {
+      margin-top: 2rem;
+    }

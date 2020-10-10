@@ -9,7 +9,7 @@
     </div>
     <div class="flashcard-options">
       <router-link :to="{name: 'EditFlashcard', params: {id: flashcard.id}}" >
-        <Button class="text-green">Edytuj</Button>
+        <Button class="text-azure">Edytuj</Button>
       </router-link>
       <DeleteFlashcard :flashcardId="flashcard.id" @flashcardRemoved="removeFlashcard" />
     </div>
