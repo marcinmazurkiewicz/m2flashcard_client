@@ -4,7 +4,7 @@
 
 <script>
   import store from '../store'
-  import Button from './Button'
+  import Button from './visual/Button'
   var componentKey = 'dev.mazurkiewicz.m2flashcards.client.logout';
 
   export default {

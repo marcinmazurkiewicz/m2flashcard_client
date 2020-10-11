@@ -41,7 +41,7 @@ export default {
 </script>
 <style lang="scss" scoped>
   .alerts {
-      grid-area: 3 / 5 / 4 / 6;
+      grid-area: 2 / 5 / 3 / 6;
       padding: 0.5rem;
   }
 

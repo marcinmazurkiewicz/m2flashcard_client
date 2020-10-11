@@ -1,41 +1,12 @@
 <template>
   <div class="wrapper form-wrapper">
     <form>
-      <div class="form-group">
-         <input v-model="question" class="form-field" id="question" required>
-         <label for="question" class="form-label">Pytanie</label>
-        <div class="alert alert-danger" role="alert" v-if="errors.question">
-          {{ $t(getErrorMsg(errors.question.errorType)) }}
-        </div>
-      </div>        
-      <div class="form-group">
-        <input v-model="answer" class="form-field" id="answer" required>
-        <label for="answer" class="form-label" >Odpowiedź</label>
-
-        <!-- <div class="alert alert-danger" role="alert" v-if="errors.answer">
-          {{ $t(getErrorMsg(errors.answer.errorType)) }}
-        </div> -->
-      </div>
-      <div class="badge-checkbox">
-        <label for="twoSided" class="form-check-label">
-          <Badge :class="[twoSided ? 'text-azure' : 'text-gray']">dwustronna</Badge>
-          <input type="checkbox" v-model="twoSided" class="badge-checkbox-input" id="twoSided" />
-        </label>
-        <div class="alert alert-danger" role="alert" v-if="errors.twoSided">
-          {{ $t(getErrorMsg(errors.twoSided.errorType)) }}
-        </div>
-      </div>   
-
-      <div class="badge-checkbox">
-        <label for="privy" class="form-check-label">
-          <Badge :class="[privy ? 'text-yellow' : 'text-gray']">prywatna</Badge>
-          <input type="checkbox" v-model="privy" class="badge-checkbox-input" id="privy" />
-        </label>
-        <div class="alert alert-danger" role="alert" v-if="errors.privy">
-          {{ $t(getErrorMsg(errors.privy.errorType)) }}
-        </div>
-      </div> 
-            
+      <TextInput v-model="question" id="question" :error="errors['question']">Pytanie</TextInput>
+      <TextInput v-model="answer" id="answer" :error="errors['answer']">Odpowiedź</TextInput>
+     
+      <BadgeCheckbox v-model="twoSided" colorClass="text-azure">dwustronna</BadgeCheckbox>
+      <BadgeCheckbox v-model="privy"  colorClass="text-yellow">prywatna</BadgeCheckbox>
+           
       <div class="action-buttons">
         <Button class="text-azure" @click.native="save()">Zapisz</Button>
       </div>  
@@ -46,18 +17,20 @@
 <script>
   import axios from 'axios'
   import store from '../store'
-  import Button from './Button'
-  import Badge from './Badge'
-  import { pushAlert } from '../mixins/PushAlert'
+  
+  import BadgeCheckbox from './visual/BadgeCheckbox'
+  import Button from './visual/Button'
+  import TextInput from './visual/Input'
 
-  var componentKey = 'dev.mazurkiewicz.m2flashcards.client.addflashcard';
+  import { pushAlert } from '../mixins/PushAlert'
 
   export default {
     name: 'AddFlashcard',
     mixins: [pushAlert],
     components: {
       Button,
-      Badge
+      TextInput,
+      BadgeCheckbox
     },
     data() {
       return {
@@ -65,7 +38,7 @@
         answer: "",
         twoSided: false,
         privy: false,
-        errors: []
+        errors: {}
       };
     },
     methods: {
@@ -90,46 +63,11 @@
           this.errors = e.response.data.errors;
           }
         });
-      },
-      getErrorMsg(errorType) {
-        return componentKey + '.' + errorType;
       }
     }
   }
 </script>
 <style lang="scss" scoped>
-  .badge-checkbox {
-    display: inline-block;
-    margin-right: 1rem;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-
-  }
-  .badge-checkbox-input {
-    display: none;
-  }
-  .form-field {
-    display: block;
-    width: 95%;
-    margin: .75rem 0;
-    padding: .5rem;
-    font-family: $baseFont;
-    background: transparent;
-    color: $fontBaseColor;
-    border: none;
-    border-bottom: 2px solid $fontBaseColor !important;
-
-    &:focus, &:valid {
-      + .form-label {
-        top: .75rem;
-        font-size: .75rem;
-      }
-    }
-    &:invalid {
-        box-shadow: none;
-    }
-  }
-
   .form-wrapper {
     border: 0.25rem solid $bgBorder;
     border-radius: 1.5rem;
@@ -138,25 +76,7 @@
     padding: 2rem;
   }
 
-   .form-group {
-      margin: 1.5rem 1rem;
-      padding-top: 1rem;
-      position: relative;
-      width: 90%;
-    }
-
-    .form-label {
-      position: absolute;
-      transition: 0.25s ease;
-      -moz-transition: 0.25s ease;
-      -webkit-transition: 0.25s ease;
-      -o-transition: 0.25s ease;
-      -ms-transition: 0.25s ease;
-      color: $fontBaseColor;
-      left: 0;
-      top: 2rem;
-    }
-    .action-buttons {
-      margin-top: 2rem;
-    }
+  .action-buttons {
+    margin-top: 2rem;
+  }
 </style>

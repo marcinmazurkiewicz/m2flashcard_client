@@ -1,41 +1,45 @@
 <template>
-  <div class="wrapper">
-    <div class="alert alert-success" role="alert" v-if="registerSuccessfull">
-      Rejestracja zakończona pomyślnie!
-    </div>
+  <div class="wrapper form-wrapper">
     <form>
       <div class="form-group">
-        <label for="email">Adres email</label>
-        <input v-model="email" type="email" class="form-control" id="email">
+        <input v-model="email" type="email"  class="form-field" id="email" required>
+        <label for="email" class="form-label">Adres email</label>
         <div class="alert alert-danger" role="alert" v-if="errors.email">
           {{ $t(getErrorMsg(errors.email.errorType)) }}
         </div>
       </div>        
       <div class="form-group">
-        <label for="password">Hasło</label>
-        <input v-model="password" type="password" class="form-control" id="password">
+        <input v-model="password" type="password" class="form-field" id="password" required>
+        <label for="password" class="form-label">Hasło</label>
         <div class="alert alert-danger" role="alert" v-if="errors.password">
           {{ $t(getErrorMsg(errors.password.errorType)) }}
         </div>
       </div>
       <div class="form-group">
-        <label for="confirmPassword">Potwierdź hasło</label>
-        <input v-model="confirmPassword" type="password" class="form-control" id="confirmPassword">
+        <input v-model="confirmPassword" type="password" class="form-field" id="confirmPassword" required>
+        <label for="confirmPassword" class="form-label">Potwierdź hasło</label>
         <div class="alert alert-danger" role="alert" v-if="errors.confirmPassword">
           {{ $t(getErrorMsg(errors.confirmPassword.errorType)) }}
         </div>
       </div>   
-      <button v-on:click="sendRegisterRequest()" type="button" class="btn btn-primary">Zarejestruj</button>
+             <div class="action-buttons">
+        <Button class="text-green" @click.native="sendRegisterRequest()">Zarejestruj</Button>
+      </div>  
+      
     </form>
   </div>
 </template>
 
 <script>
   import axios from 'axios'
+  import Button from './visual/Button'
   var componentKey = 'dev.mazurkiewicz.m2flashcards.client.register';
 
   export default {
     name: 'Register',
+    components: {
+      Button
+    },
     data() {
       return {
         email: "",

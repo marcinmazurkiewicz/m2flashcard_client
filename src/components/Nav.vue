@@ -30,7 +30,7 @@
 <script>
   import store from '../store'
   import Logout from './Logout'
-  import Button from './Button'
+  import Button from './visual/Button'
 
   export default {
     name: 'Nav',

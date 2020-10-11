@@ -1,24 +1,28 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper form-wrapper">
     <div class="alert alert-success" role="alert" v-if="loginSuccessfull">
       Zalogowano pomyślnie!
     </div>
     <form>
       <div class="form-group">
-        <label for="email">Adres email</label>
-        <input v-model="email" type="email" class="form-control" id="email">
+        <input v-model="email" type="email" class="form-field" id="email" required>
+        <label for="email" class="form-label">Adres email</label>
+
         <div class="alert alert-danger" role="alert" v-if="errors.email">
           {{ $t(getErrorMsg(errors.email.errorType)) }}
         </div>
       </div>      
       <div class="form-group">
-        <label for="password">Hasło</label>
-        <input v-model="password" type="password" class="form-control" id="password">
+        <input v-model="password" type="password" class="form-field" id="password" required> 
+                <label for="password" class="form-label">Hasło</label>
+
         <div class="alert alert-danger" role="alert" v-if="errors.password">
           {{ $t(getErrorMsg(errors.password.errorType)) }}
         </div>
       </div>    
-      <button v-on:click="sendLoginRequest()" type="button" class="btn btn-primary">Zaloguj</button>
+       <div class="action-buttons">
+        <Button class="text-azure" @click.native="sendLoginRequest()">Zaloguj</Button>
+      </div>  
     </form>
   </div>
 </template>
@@ -26,10 +30,14 @@
 <script>
   import axios from 'axios'
   import store from '../store'
+  import Button from './visual/Button'
   var componentKey = 'dev.mazurkiewicz.m2flashcards.client.login';
 
   export default {
     name: 'Login',
+    components: {
+      Button
+    },
     data() {
       return {
         email: "",

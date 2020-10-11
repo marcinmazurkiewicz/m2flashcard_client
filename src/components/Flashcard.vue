@@ -18,8 +18,8 @@
 
 <script>
   import DeleteFlashcard from './DeleteFlashcard'
-  import Button from './Button'
-  import Badge from './Badge'
+  import Button from './visual/Button'
+  import Badge from './visual/Badge'
 
   export default {
     name: 'Flashcard',

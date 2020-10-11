@@ -5,7 +5,7 @@
 <script>
   import store from '../store'
   import axios from 'axios'
-  import Button from './Button'
+  import Button from './visual/Button'
   import { pushAlert } from '../mixins/PushAlert'
 
 

@@ -23,6 +23,8 @@ export default {
     background: $bgDarker !important;
     color:  $fontBaseColor !important;
     font-family: $baseFont;
+    margin: 0;
+    padding: 0;
 
   }
 

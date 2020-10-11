@@ -14,7 +14,7 @@
   import axios from 'axios'
   import store from '../store'
   import Flashcard from './Flashcard'
-  import Button from './Button'
+  import Button from './visual/Button'
 
   // var componentKey = 'dev.mazurkiewicz.m2flashcards.client.user.flashcards';
 
