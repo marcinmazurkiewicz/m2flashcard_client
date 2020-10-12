@@ -3,7 +3,6 @@
 </template>
 <style lang="scss" scoped>
   .badge {
-    margin-left: 1.2rem;
     font-family: $baseFont;
     font-size: 0.75rem;
     position: relative;
@@ -36,5 +35,9 @@
       bottom: -0.25em;
       transform: skewX(-45deg);
     }
+  }
+
+  .badge + .badge {
+        margin-left: 1.2rem;
   }
 </style>

@@ -2,10 +2,11 @@
   <div class="form-group">
     <input 
       :id="id"
+      :type="type"
       v-bind:value="value"
       v-on:input="$emit('input', $event.target.value)" 
       class="form-field" 
-      required
+      :required=required
     >
     <label :for="id" class="form-label"><slot /></label>
     <div class="error-info" v-if="error">
@@ -16,7 +17,25 @@
 <script>
 export default {
   name: 'Input',
-  props: ['value', 'id', 'error'],
+  props: {
+    value: {
+      type: [String, Number],
+      required: true
+    }, 
+    id: {
+      type: String,
+      required: true
+    }, 
+    error: Object,
+    type: {
+      type: String,
+      default: 'text'
+    },
+    required: {
+      type: Boolean,
+      default: true
+    }
+  },
   methods: {
     getErrorMsg() {
       var msgPath = `dev.mazurkiewicz.m2flashcards.client.error.form.${this.error.errorType}`;
@@ -29,7 +48,7 @@ export default {
 <style lang="scss" scoped>
   .form-field {
     display: block;
-    width: 97%;
+    width: 100%;
     margin: .75rem 0;
     padding: .5rem;
     font-family: $baseFont;
@@ -46,19 +65,20 @@ export default {
         box-shadow: none;
       }
     }
-    &:invalid {
-        box-shadow: none;
-        border-color: $red !important;
-        + .form-label {
-        color: $red;
-      }
-    }
+    // &:invalid {
+    //     box-shadow: none;
+    //     border-color: $red !important;
+    //     + .form-label {
+    //     color: $red;
+    //   }
+    // }
   }
   .form-group {
-    margin: 1.5rem 1rem;
     padding-top: 1rem;
     position: relative;
     width: 90%;
+    margin: 0 auto;
+    text-align: center;
   }
 
   .form-label {
@@ -76,5 +96,6 @@ export default {
   .error-info {
     font-size: .75rem;
     color: $red;
+    text-align: left;
   }
 </style>

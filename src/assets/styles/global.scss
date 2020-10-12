@@ -21,3 +21,17 @@
     grid-area: 2 / 2 / 3 / 5;
     max-width: 1200px;
 } 
+
+.form-wrapper {
+    border: 0.25rem solid $bgBorder;
+    border-radius: 1.5rem;
+    margin: 3rem;
+    background: $bgLighter;
+    padding: 2rem;
+  }
+
+  .action-buttons {
+    margin: 0 auto;
+    margin-top: 2rem;
+    width: 97%;
+  }

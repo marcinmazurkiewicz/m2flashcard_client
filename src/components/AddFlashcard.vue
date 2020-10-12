@@ -4,9 +4,11 @@
       <TextInput v-model="question" id="question" :error="errors['question']">Pytanie</TextInput>
       <TextInput v-model="answer" id="answer" :error="errors['answer']">Odpowiedź</TextInput>
      
-      <BadgeCheckbox v-model="twoSided" colorClass="text-azure">dwustronna</BadgeCheckbox>
-      <BadgeCheckbox v-model="privy"  colorClass="text-yellow">prywatna</BadgeCheckbox>
-           
+      <div class="badges-group">
+        <BadgeCheckbox v-model="twoSided" colorClass="text-azure">dwustronna</BadgeCheckbox>
+        <BadgeCheckbox v-model="privy"  colorClass="text-yellow">prywatna</BadgeCheckbox>
+      </div>
+
       <div class="action-buttons">
         <Button class="text-azure" @click.native="save()">Zapisz</Button>
       </div>  
@@ -68,15 +70,10 @@
   }
 </script>
 <style lang="scss" scoped>
-  .form-wrapper {
-    border: 0.25rem solid $bgBorder;
-    border-radius: 1.5rem;
-    margin: 3rem;
-    background: $bgLighter;
-    padding: 2rem;
-  }
-
-  .action-buttons {
-    margin-top: 2rem;
+  .badges-group {
+    padding-top: 1rem;
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
   }
 </style>

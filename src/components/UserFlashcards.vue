@@ -16,8 +16,6 @@
   import Flashcard from './Flashcard'
   import Button from './visual/Button'
 
-  // var componentKey = 'dev.mazurkiewicz.m2flashcards.client.user.flashcards';
-
   export default {
     name: 'UserFlashcards',
     components: {

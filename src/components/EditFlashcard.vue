@@ -1,12 +1,14 @@
 <template>
   <div class="wrapper form-wrapper">
-    <form>
-      <TextInput v-model="question" id="question">Pytanie</TextInput>
-      <TextInput v-model="answer" id="answer">Odpowiedź</TextInput>
+    <form novalidate="true">
+      <TextInput v-model="question" id="question" :error="errors['question']">Pytanie</TextInput>
+      <TextInput v-model="answer" id="answer" :error="errors['answer']">Odpowiedź</TextInput>
      
-      <BadgeCheckbox v-model="twoSided" colorClass="text-azure">dwustronna</BadgeCheckbox>
-      <BadgeCheckbox v-model="privy"  colorClass="text-yellow">prywatna</BadgeCheckbox>
-            
+      <div class="badges-group">
+        <BadgeCheckbox v-model="twoSided" colorClass="text-azure">dwustronna</BadgeCheckbox>
+        <BadgeCheckbox v-model="privy"  colorClass="text-yellow">prywatna</BadgeCheckbox>
+      </div>
+
       <div class="action-buttons">
         <Button class="text-azure" @click.native="save()">Zapisz</Button>
       </div>  
@@ -80,4 +82,11 @@
     }
   }
 </script>
-
+<style lang="scss" scoped>
+  .badges-group {
+    padding-top: 1rem;
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+  }
+</style>
